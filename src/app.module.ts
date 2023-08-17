@@ -3,7 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
-import {TypeOrmModule} from '@nestjs/typeorm'
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { EmployeeModule } from './employee/employee.module';
 import { AuthModule } from './auth/auth.module';
 @Module({
@@ -11,14 +11,15 @@ import { AuthModule } from './auth/auth.module';
     ConfigModule.forRoot(),
     AuthModule,
     TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
+      type: 'postgres',
+      host: 'dpg-cjeftdenk9qs73afjpe0-a.oregon-postgres.render.com',
+      port: 5432,
       username: 'root',
-      password: 'hola1234',
-      database: 'prueba',
+      password: '6dUUQCK55yoJvmu2nbfuzwwGhkkIVERo',
+      database: 'auxiliatron_96mq',
+      ssl: { rejectUnauthorized: false },
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true
+      synchronize: true,
     }),
     UserModule,
     EmployeeModule],

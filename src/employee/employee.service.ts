@@ -19,7 +19,7 @@ export class EmployeeService {
         })
 
         if (employeeFound){
-            return new HttpException('El usuario ya existe', HttpStatus.CONFLICT)
+            return new HttpException('El empleado ya existe', HttpStatus.CONFLICT)
         }
 
         const newEmployee = this.employeeRepository.create(employee) 
@@ -38,7 +38,7 @@ export class EmployeeService {
         })
 
         if (!employeeFound){
-            return new HttpException('Usuario no encontrado', HttpStatus.NOT_FOUND)
+            return new HttpException('Empleado no encontrado', HttpStatus.NOT_FOUND)
         }
 
         return employeeFound
@@ -48,21 +48,21 @@ export class EmployeeService {
         const employeeFound = await this.employeeRepository.findOne({where: {id}})
 
         if (!employeeFound){
-            return new HttpException('Usuario no encontrado', HttpStatus.NOT_FOUND)
+            return new HttpException('Empleado no encontrado', HttpStatus.NOT_FOUND)
         }
 
         return this.employeeRepository.delete({id})
     }
 
     async updateEmployee(id:  number, employee: UpdateEmployeeDto){
-        const userFound = await this.employeeRepository.findOne({where: {id}})
+        const employeeFound = await this.employeeRepository.findOne({where: {id}})
 
-        if (!userFound){
-            return new HttpException('Usuario no encontrado', HttpStatus.NOT_FOUND)
+        if (!employeeFound){
+            return new HttpException('Empleado no encontrado', HttpStatus.NOT_FOUND)
         }
 
-        const updateUser = Object.assign(userFound, employee)
-        return this.employeeRepository.save(updateUser)
+        const updateEmployee = Object.assign(employeeFound, employee)
+        return this.employeeRepository.save(updateEmployee)
 
     }
 }

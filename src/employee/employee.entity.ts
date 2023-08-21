@@ -15,8 +15,5 @@ export class Employee{
         
     @Column({unique: true})
     numero: number  
-    
-    @Column({type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
-    createdAt: Date
   
 }

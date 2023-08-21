@@ -24,9 +24,6 @@ export class Clients{
 
     @Column({unique: true})
     email: string
-
-    @Column({type: 'datetime', default: () => 'CURRENT_TIMESTAMP'})
-    registerDate: Date
     
     @Column({})
     planType: string

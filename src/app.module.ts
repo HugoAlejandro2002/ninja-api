@@ -6,6 +6,7 @@ import { UserModule } from './user/user.module';
 import {TypeOrmModule} from '@nestjs/typeorm'
 import { EmployeeModule } from './employee/employee.module';
 import { AuthModule } from './auth/auth.module';
+import { ClientsModule } from './clients/clients.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -21,7 +22,8 @@ import { AuthModule } from './auth/auth.module';
       synchronize: true
     }),
     UserModule,
-    EmployeeModule],
+    EmployeeModule,
+    ClientsModule],
   controllers: [AppController],
   providers: [AppService],
 })

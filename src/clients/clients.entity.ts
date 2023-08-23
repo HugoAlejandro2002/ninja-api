@@ -31,7 +31,6 @@ export class Clients{
     @Column({})
     payplan: string
 
-    @Column({})
-    foto: string
-
+    @Column({type: 'datetime', default: () => 'CURRENT_TIMESTAMP'})
+    RegitterDate: Date
 }

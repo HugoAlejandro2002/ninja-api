@@ -7,5 +7,4 @@ export class UpdateClientsDto {
     email?: string
     planType?: string
     payplan?: string
-    foto?: string
 }

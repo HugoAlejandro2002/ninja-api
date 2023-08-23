@@ -8,5 +8,4 @@ export class CreateClientsDto {
     email: string
     planType: string
     payplan: string
-    foto: string
 }

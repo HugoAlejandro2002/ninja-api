@@ -21,7 +21,7 @@ import { ClientsModule } from './clients/clients.module';
       ssl: { rejectUnauthorized: false },
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
-    }),
+    }),,
     UserModule,
     EmployeeModule,
     ClientsModule],

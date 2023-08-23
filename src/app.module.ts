@@ -7,10 +7,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { EmployeeModule } from './employee/employee.module';
 import { AuthModule } from './auth/auth.module';
 import { ClientsModule } from './clients/clients.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot(),
     AuthModule,
+
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'dpg-cjeftdenk9qs73afjpe0-a.oregon-postgres.render.com',
@@ -21,7 +23,7 @@ import { ClientsModule } from './clients/clients.module';
       ssl: { rejectUnauthorized: false },
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
-    }),,
+    }),
     UserModule,
     EmployeeModule,
     ClientsModule],

@@ -14,16 +14,19 @@ export class EmployeeService {
 
         const employeeFound = await this.employeeRepository.findOne({
             where: {
-                employeename: employee.employeename
+                employeename: employee.employeename,
             }
         })
 
         if (employeeFound){
             return new HttpException('El empleado ya existe', HttpStatus.CONFLICT)
         }
-
-        const newEmployee = this.employeeRepository.create(employee) 
-        return this.employeeRepository.save(newEmployee)
+        if ((employee.cargo == "Entrenador") || (employee.cargo == "Limpieza")) {
+            const newEmployee = this.employeeRepository.create(employee) 
+            return this.employeeRepository.save(newEmployee)
+        }
+        
+        return new HttpException('Solo hay 2 cargos, Limpieza o Entrenador', HttpStatus.CONFLICT)
     }
 
     getEmployees(){

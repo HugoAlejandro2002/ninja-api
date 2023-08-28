@@ -15,5 +15,8 @@ export class Employee{
         
     @Column({unique: true})
     numero: number  
+
+    @Column({ type: 'timestamptz' }) // Recommended
+    date_time_with_timezone: Date;
   
 }

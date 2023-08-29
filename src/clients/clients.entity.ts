@@ -31,6 +31,4 @@ export class Clients{
     @Column({})
     payplan: string
 
-    @Column({ type: 'timestamptz' }) // Recommended
-    date_time_with_timezone: Date;
 }

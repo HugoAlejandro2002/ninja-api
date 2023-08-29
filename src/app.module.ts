@@ -14,19 +14,16 @@ import { ClientsModule } from './clients/clients.module';
     AuthModule,
 
     TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
+      type: 'postgres',
+      host: 'dpg-cjeftdenk9qs73afjpe0-a.oregon-postgres.render.com',
+      port: 5432,
       username: 'root',
-      password: 'hola1234',
-      database: 'prueba',
+      password: '6dUUQCK55yoJvmu2nbfuzwwGhkkIVERo',
+      database: 'auxiliatron_96mq',
+      ssl: { rejectUnauthorized: false },
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
-  
-
-
     }),
-
     UserModule,
     EmployeeModule,
     ClientsModule],

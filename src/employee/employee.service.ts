@@ -4,6 +4,7 @@ import { Employee } from './employee.entity';
 import { Repository } from 'typeorm';
 import { CreateEmployeeDto } from './dto/create-employee.dto'
 import { UpdateEmployeeDto } from './dto/update-employee.dto'
+
 @Injectable()
 export class EmployeeService {
 
@@ -21,12 +22,12 @@ export class EmployeeService {
         if (employeeFound){
             return new HttpException('El empleado ya existe', HttpStatus.CONFLICT)
         }
-        if ((employee.cargo == "Entrenador") || (employee.cargo == "Limpieza")) {
+        if ((employee.cargo == "Entrenador") || (employee.cargo == "Conserje")) {
             const newEmployee = this.employeeRepository.create(employee) 
             return this.employeeRepository.save(newEmployee)
         }
         
-        return new HttpException('Solo hay 2 cargos, Limpieza o Entrenador', HttpStatus.CONFLICT)
+        return new HttpException('Solo hay 2 cargos, Conserje o Entrenador', HttpStatus.CONFLICT)
     }
 
     getEmployees(){
@@ -64,8 +65,12 @@ export class EmployeeService {
             return new HttpException('Empleado no encontrado', HttpStatus.NOT_FOUND)
         }
 
-        const updateEmployee = Object.assign(employeeFound, employee)
-        return this.employeeRepository.save(updateEmployee)
+        if ((employee.cargo == "Entrenador") || (employee.cargo == "Conserje")) {
+            const newEmployee = this.employeeRepository.create(employee) 
+            return this.employeeRepository.save(newEmployee)
+        }
+        
+        return new HttpException('Solo hay 2 cargos, Conserje o Entrenador', HttpStatus.CONFLICT)
 
     }
 }

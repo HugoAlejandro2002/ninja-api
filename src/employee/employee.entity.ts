@@ -15,4 +15,7 @@ export class Employee{
         
     @Column({unique: true})
     numero: number  
+
+    @Column({ type: "timestamptz", default: () => "CURRENT_TIMESTAMP" })
+    createdDate: Date;
 }

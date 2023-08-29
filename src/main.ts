@@ -11,9 +11,9 @@ async function bootstrap() {
 
 
   const config = new DocumentBuilder()
-    .setTitle('Cats example')
-    .setDescription('The cats API description')
-    .setVersion('1.0')
+    .setTitle('GymyApp API')
+    .setDescription('API enfocada en manejar una base de datos la cual almacena cosas importantes')
+    .setVersion('2.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document, {

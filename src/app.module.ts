@@ -13,7 +13,6 @@ import { ClientsModule } from './clients/clients.module';
     ConfigModule.forRoot(),
     AuthModule,
 
-
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'dpg-cjeftdenk9qs73afjpe0-a.oregon-postgres.render.com',
@@ -25,6 +24,7 @@ import { ClientsModule } from './clients/clients.module';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
+    
     UserModule,
     EmployeeModule,
     ClientsModule],

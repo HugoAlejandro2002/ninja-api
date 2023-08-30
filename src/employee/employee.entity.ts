@@ -7,13 +7,13 @@ export class Employee{
     @PrimaryGeneratedColumn()
     id: number 
     
-    @Column({unique: true})
+    @Column({})
     employeename: string
     
     @Column({})
     cargo: string
         
-    @Column({unique: true})
+    @Column({})
     numero: number  
 
     @Column({ type: "timestamptz", default: () => "CURRENT_TIMESTAMP" })

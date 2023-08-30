@@ -7,7 +7,7 @@ export class Clients{
     @PrimaryGeneratedColumn()
     id: number 
     
-    @Column({unique: true})
+    @Column({})
     clientFirstName: string
     
     @Column()
@@ -19,7 +19,7 @@ export class Clients{
     @Column({})
     direction: string
 
-    @Column({unique: true})
+    @Column({})
     cellphone: number 
 
     @Column({unique: true})

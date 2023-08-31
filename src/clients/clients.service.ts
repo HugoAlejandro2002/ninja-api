@@ -19,9 +19,9 @@ export class ClientsService {
             }
         })
 
-        if (clientFound){
-            return new HttpException('El cliente ya existe', HttpStatus.CONFLICT)
-        }
+        // if (clientFound){
+        //     return new HttpException('El cliente ya existe', HttpStatus.CONFLICT)
+        // }
 
         const newClient = this.clientRepository.create(client) 
         return this.clientRepository.save(newClient)

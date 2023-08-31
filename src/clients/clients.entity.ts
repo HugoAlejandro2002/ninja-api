@@ -1,7 +1,7 @@
 import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm'
 
 
-@Entity({name: 'clientes' })
+@Entity({name: 'clientes registrados' })
 export class Clients{
 
     @PrimaryGeneratedColumn()
@@ -14,7 +14,7 @@ export class Clients{
     clientLastName: string
         
     @Column({})
-    borndate: number 
+    borndate: string 
     
     @Column({})
     direction: string

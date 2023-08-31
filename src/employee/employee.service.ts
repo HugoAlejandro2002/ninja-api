@@ -66,8 +66,8 @@ export class EmployeeService {
         }
 
         if ((employee.cargo == "Entrenador") || (employee.cargo == "Conserje")) {
-            const newEmployee = this.employeeRepository.create(employee) 
-            return this.employeeRepository.save(newEmployee)
+            const updateEmployee = Object.assign(employeeFound, employee)
+            return this.employeeRepository.save(updateEmployee)
         }
         
         return new HttpException('Solo hay 2 cargos, Conserje o Entrenador', HttpStatus.CONFLICT)

@@ -14,8 +14,7 @@ export class ClientsService {
 
         const clientFound = await this.clientRepository.findOne({
             where: {
-                clientFirstName: client.clientFirstName 
-                //clientLastName: client.clientLastName
+                CI: client.CI
             }
         })
 

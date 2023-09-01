@@ -15,7 +15,7 @@ export class EmployeeService {
 
         const employeeFound = await this.employeeRepository.findOne({
             where: {
-                employeename: employee.employeename,
+                CI: employee.CI,
             }
         })
 

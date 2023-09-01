@@ -1,7 +1,7 @@
 import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm'
 
 
-@Entity({name: 'clientes registrados' })
+@Entity({name: 'clientes registrados con CI' })
 export class Clients{
 
     @PrimaryGeneratedColumn()
@@ -23,6 +23,9 @@ export class Clients{
     cellphone: number 
 
     @Column({unique: true})
+    CI: number 
+
+    @Column({})
     email: string
     
     @Column({})

@@ -1,10 +1,10 @@
 export class CreateClientsDto {
-//nombre, apellido, fecha de nacimiento, dirección, teléfono, email, fecha de registro, tipo de plan, tipo de pago, y una foto.
     clientFirstName: string
     clientLastName: string
     borndate: string
     direction: string
     cellphone: number
+    CI: number
     email: string
     planType: string
     payplan: string

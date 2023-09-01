@@ -1,7 +1,7 @@
 import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm'
 
 
-@Entity({name: 'clientes registrados' })
+@Entity({name: 'clientes registrados con CI 1' })
 export class Clients{
 
     @PrimaryGeneratedColumn()
@@ -22,7 +22,10 @@ export class Clients{
     @Column({})
     cellphone: number 
 
-    @Column({unique: true})
+//    @Column({unique: true})
+//   CI: number 
+
+    @Column({})
     email: string
     
     @Column({})

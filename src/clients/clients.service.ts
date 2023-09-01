@@ -12,16 +12,15 @@ export class ClientsService {
 
     async createClients(client: CreateClientsDto){
 
-        const clientFound = await this.clientRepository.findOne({
+/*         const clientFound = await this.clientRepository.findOne({
             where: {
-                clientFirstName: client.clientFirstName 
-                //clientLastName: client.clientLastName
+                CI: client.CI
             }
         })
 
         if (clientFound){
             return new HttpException('El cliente ya existe', HttpStatus.CONFLICT)
-        }
+        } */
 
         const newClient = this.clientRepository.create(client) 
         return this.clientRepository.save(newClient)

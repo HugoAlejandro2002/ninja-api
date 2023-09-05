@@ -22,9 +22,6 @@ export class Clients{
     @Column({})
     cellphone: number 
 
-//    @Column({unique: true})
-//   CI: number 
-
     @Column({})
     email: string
     

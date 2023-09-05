@@ -12,24 +12,23 @@ export class MachineService {
 
 
     async createMachine(machine: CreateMachineDto){
-        const newMachine = this.machineRepository.create(machine) 
-        return this.machineRepository.save(newMachine)
 
-//        const employeeFound = await this.machineRepository.findOne({
-//            where: {
-//                CI: machine.CI,
-//            }
-//        })
+        if ((machine.machineName == "TROTADORA" || 
+        machine.machineName == "MAQUINA SMITH" || 
+        machine.machineName == "MÁQUINA DE POLEAS MULTIFUNCIONAL"||
+        machine.machineName == "BICI ELÍPTICA" || 
+        machine.machineName == "PRENSA DE PIERNA"|| 
+        machine.machineName == "MÁQUINA DE PRESS BANCA") && 
+        (machine.machineBrand == "AFW - AllFreeWeight" || 
+        machine.machineBrand == "Adidas" || 
+        machine.machineBrand == "Assault Fitness"||
+        machine.machineBrand == "UFC" || 
+        machine.machineBrand == "BH Hi Power")){
+            const newMachine = this.machineRepository.create(machine) 
+                return this.machineRepository.save(newMachine)
+        }
 
-//        if (employeeFound){
-//            return new HttpException('El empleado ya existe', HttpStatus.CONFLICT)
-//        }
-//        if ((machine.cargo == "Entrenador") || (machine.cargo == "Conserje")) {
-//            const newEmployee = this.machineRepository.create(machine) 
-//            return this.machineRepository.save(newEmployee)
-//        }
-        
-//        return new HttpException('Solo hay 2 cargos, Conserje o Entrenador', HttpStatus.CONFLICT)
+        return new HttpException('Nombre o marca de maquina equivocado', HttpStatus.CONFLICT)
     }
 
     getMachines(){
@@ -66,18 +65,22 @@ export class MachineService {
         if (!MachineFound){
             return new HttpException('Maquina no encontrada', HttpStatus.NOT_FOUND)
         }
-
-        const updateEmployee = Object.assign(MachineFound, machine)
-        return this.machineRepository.save(updateEmployee)
-
-//        if ((machine.cargo == "Entrenador") || (machine.cargo == "Conserje")) {
-//            const updateEmployee = Object.assign(MachineFound, machine)
-//            return this.machineRepository.save(updateEmployee)
-//        }
         
-//        return new HttpException('Solo hay 2 cargos, Conserje o Entrenador', HttpStatus.CONFLICT)
-
+        if ((machine.machineName == "Trotadora" || 
+        machine.machineName == "Maquina Smith" || 
+        machine.machineName == "Maquina de poleas multifuncional"||
+        machine.machineName == "Bici Eliptica" || 
+        machine.machineName == "Prensa de pierna"|| 
+        machine.machineName == "Maquina de press banca") && 
+        (machine.machineBrand == "AFW" || 
+        machine.machineBrand == "All Free Weight"||
+        machine.machineBrand == "Adidas" || 
+        machine.machineBrand == "Assault Fitness"||
+        machine.machineBrand == "UFC" || 
+        machine.machineBrand == "BH Hi Power")){
+            const updateEmployee = Object.assign(MachineFound, machine)
+            return this.machineRepository.save(updateEmployee)
+        }
+        return new HttpException('Nombre o marca de maquina equivocado', HttpStatus.CONFLICT)
     }
-
-
 }

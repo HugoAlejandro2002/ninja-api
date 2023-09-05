@@ -13,15 +13,6 @@ export class EmployeeService {
 
     async createEmployee(employee: CreateEmployeeDto){
 
-/*         const employeeFound = await this.employeeRepository.findOne({
-            where: {
-                CI: employee.CI,
-            }
-        })
-
-        if (employeeFound){
-            return new HttpException('El empleado ya existe', HttpStatus.CONFLICT)
-        } */
         if ((employee.cargo == "Entrenador") || (employee.cargo == "Conserje")) {
             const newEmployee = this.employeeRepository.create(employee) 
             return this.employeeRepository.save(newEmployee)

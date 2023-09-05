@@ -4,7 +4,6 @@ export class UpdateClientsDto {
     borndate?: string
     direction?: string
     cellphone?: number
- //   CI?: number
     email?: string
     planType?: string
     payplan?: string

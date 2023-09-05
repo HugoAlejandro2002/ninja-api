@@ -3,5 +3,4 @@ export class UpdateEmployeeDto {
     employeeLastName?: string
     cargo?: string
     numero?: number
-//    CI?: number
 }

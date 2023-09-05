@@ -1,7 +1,7 @@
 import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm'
 
 
-@Entity({name: 'Maquinas' })
+@Entity({name: 'Maquinas 1' })
 export class Machine{
 
     @PrimaryGeneratedColumn()
@@ -10,20 +10,9 @@ export class Machine{
     @Column({})
     machineName: string
 
-    @Column({})
-    machineBrand: string
-    
-    @Column({})
-    machineWayOfUse: string
-
     @Column({ type: "timestamptz", default: () => "CURRENT_TIMESTAMP" })
     createdDate: Date;
         
     @Column({})
-    maintenanceDate: string  
-
-    @Column({})
     needMaintenance?: boolean
-
-
 }

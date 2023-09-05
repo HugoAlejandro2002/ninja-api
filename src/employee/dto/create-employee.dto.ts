@@ -3,5 +3,4 @@ export class CreateEmployeeDto {
     employeeLastName: string
     cargo: string
     numero: number
- //   CI: number
 }

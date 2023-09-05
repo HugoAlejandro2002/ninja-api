@@ -15,21 +15,6 @@ export class MachineService {
         const newMachine = this.machineRepository.create(machine) 
         return this.machineRepository.save(newMachine)
 
-//        const employeeFound = await this.machineRepository.findOne({
-//            where: {
-//                CI: machine.CI,
-//            }
-//        })
-
-//        if (employeeFound){
-//            return new HttpException('El empleado ya existe', HttpStatus.CONFLICT)
-//        }
-//        if ((machine.cargo == "Entrenador") || (machine.cargo == "Conserje")) {
-//            const newEmployee = this.machineRepository.create(machine) 
-//            return this.machineRepository.save(newEmployee)
-//        }
-        
-//        return new HttpException('Solo hay 2 cargos, Conserje o Entrenador', HttpStatus.CONFLICT)
     }
 
     getMachines(){
@@ -69,13 +54,6 @@ export class MachineService {
 
         const updateEmployee = Object.assign(MachineFound, machine)
         return this.machineRepository.save(updateEmployee)
-
-//        if ((machine.cargo == "Entrenador") || (machine.cargo == "Conserje")) {
-//            const updateEmployee = Object.assign(MachineFound, machine)
-//            return this.machineRepository.save(updateEmployee)
-//        }
-        
-//        return new HttpException('Solo hay 2 cargos, Conserje o Entrenador', HttpStatus.CONFLICT)
 
     }
 

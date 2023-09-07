@@ -1,6 +1,5 @@
 export class CreateEmployeeDto {
-    employeeFirstame: string
-    employeeLastName: string
+    employeeName: string
     cargo: string
     numero: number
 }

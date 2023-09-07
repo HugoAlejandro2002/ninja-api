@@ -1,17 +1,14 @@
 import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm'
 
 
-@Entity({name: 'empleados3' })
+@Entity({name: 'empleados4' })
 export class Employee{
 
     @PrimaryGeneratedColumn()
     id: number 
     
     @Column({})
-    employeeFirstName: string
-
-    @Column({})
-    employeeLastName: string
+    employeeName:string
     
     @Column({})
     cargo: string

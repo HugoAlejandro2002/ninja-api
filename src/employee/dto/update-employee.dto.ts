@@ -1,5 +1,5 @@
 export class UpdateEmployeeDto {
-    employeeName?: string
+    employeename?: string
     cargo?: string
     numero?: number
 }

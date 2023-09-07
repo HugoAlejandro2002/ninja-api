@@ -8,7 +8,7 @@ export class Employee{
     id: number 
     
     @Column({})
-    employeeName:string
+    employeename:string
     
     @Column({})
     cargo: string

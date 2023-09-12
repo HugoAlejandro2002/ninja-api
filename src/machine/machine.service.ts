@@ -19,8 +19,7 @@ export class MachineService {
         machine.machineName == "Bici Eliptica" || 
         machine.machineName == "Prensa de pierna"|| 
         machine.machineName == "Maquina de press banca") && 
-        (machine.machineBrand == "AFW" || 
-        machine.machineBrand == "All Free Weight"||
+        (machine.machineBrand == "AFW - All Free Weight"||
         machine.machineBrand == "Adidas" || 
         machine.machineBrand == "Assault Fitness"||
         machine.machineBrand == "UFC" || 

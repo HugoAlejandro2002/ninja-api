@@ -3,5 +3,6 @@ export class CreateMachineDto {
     machineBrand: string
     maintenanceDate: string
     adquisitionDate: string
+    adquisitiondate: string
     needMaintenance: boolean
 }

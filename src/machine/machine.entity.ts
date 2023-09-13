@@ -16,7 +16,7 @@ export class Machine{
     machineBrand: string
 
     @Column({})
-    adquisitionDate: string
+    acquisitionDate: string
     
     @Column({})
     maintenanceDate: string

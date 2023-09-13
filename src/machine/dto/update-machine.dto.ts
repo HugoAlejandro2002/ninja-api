@@ -2,6 +2,6 @@ export class UpdateMachineDto {
     machineName?: string
     machineBrand?: string
     maintenanceDate?: string
-    adquisitionDate?: string
+    acquisitionDate?: string
     needMaintenance?: boolean
 }

@@ -9,27 +9,27 @@ export class EmployeeController {
     constructor(private employeeService: EmployeeService){}
 
     @Get()
-    getUsers(): Promise<Employee[]>{
+    getEmployees(): Promise<Employee[]>{
         return this.employeeService.getEmployees();
     }
 
     @Get(':id')
-    getUser(@Param('id', ParseIntPipe) id: number){
+    getEmployee(@Param('id', ParseIntPipe) id: number){
         return this.employeeService.getEmployee(id);
     }
 
     @Post()
-    createUser(@Body() newUser: CreateEmployeeDto){
+    createEmployee(@Body() newUser: CreateEmployeeDto){
        return this.employeeService.createEmployee(newUser)
     }
 
     @Delete(':id')
-    deleteUser(@Param('id', ParseIntPipe) id: number){
+    deleteEmployee(@Param('id', ParseIntPipe) id: number){
         return this.employeeService.deleteEmployee(id)
     }
 
     @Patch(':id')
-    updateUser(@Param('id', ParseIntPipe) id:number, @Body() user: UpdateEmployeeDto){
+    updateEmployee(@Param('id', ParseIntPipe) id:number, @Body() user: UpdateEmployeeDto){
         return this.employeeService.updateEmployee(id, user)
     } 
 }

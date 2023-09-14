@@ -1,19 +1,21 @@
 import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm'
 
 
-@Entity({name: 'empleados' })
+@Entity({name: 'empleados4' })
 export class Employee{
 
     @PrimaryGeneratedColumn()
     id: number 
     
-    @Column({unique: true})
-    employeename: string
+    @Column({})
+    employeename:string
     
-    @Column()
+    @Column({})
     cargo: string
         
-    @Column({unique: true})
+    @Column({})
     numero: number  
-  
+
+    @Column({ type: "timestamptz", default: () => "CURRENT_TIMESTAMP" })
+    createdDate: Date;
 }

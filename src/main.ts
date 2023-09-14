@@ -2,6 +2,8 @@ import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 
+const PORT = process.env.PORT || 3000;
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
@@ -11,9 +13,9 @@ async function bootstrap() {
 
 
   const config = new DocumentBuilder()
-    .setTitle('Cats example')
-    .setDescription('The cats API description')
-    .setVersion('1.0')
+    .setTitle('GymyApp API')
+    .setDescription('API enfocada en manejar una base de datos la cual almacena cosas importantes')
+    .setVersion('2.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document, {
@@ -25,6 +27,6 @@ async function bootstrap() {
     }
 
   });
-  await app.listen(3000);
+  await app.listen(PORT);
 }
 bootstrap();

@@ -1,28 +1,28 @@
 import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm'
 
 
-@Entity({name: 'clientes' })
+@Entity({name: 'clientes registrados ' })
 export class Clients{
 
     @PrimaryGeneratedColumn()
     id: number 
     
-    @Column({unique: true})
+    @Column({})
     clientFirstName: string
     
     @Column()
     clientLastName: string
         
     @Column({})
-    borndate: number 
+    borndate: string 
     
     @Column({})
     direction: string
 
-    @Column({unique: true})
+    @Column({})
     cellphone: number 
 
-    @Column({unique: true})
+    @Column({})
     email: string
     
     @Column({})
@@ -31,7 +31,7 @@ export class Clients{
     @Column({})
     payplan: string
 
-    @Column({})
-    foto: string
+    @Column({ type: "timestamptz", default: () => "CURRENT_TIMESTAMP" })
+    createdDate: Date;
 
 }

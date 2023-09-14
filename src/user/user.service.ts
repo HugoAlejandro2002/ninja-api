@@ -86,4 +86,10 @@ export class UserService {
         return this.userRepository.save(userFound)
     }
 
+    
+    async getUserByName(username: string){
+        return await this.userRepository.findOne({where: {username: username}})
+    }
+
+
 }

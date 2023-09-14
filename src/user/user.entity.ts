@@ -14,9 +14,6 @@ export class User{
     @Column()
     password: string
     
-    @Column({type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
-    createdAt: Date
-    
     @Column({nullable: true})
     authStrategy: string
 

@@ -2,8 +2,9 @@ import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Employee } from './employee.entity';
 import { Repository } from 'typeorm';
-import {CreateEmployeeDto} from './dto/create-employee.dto'
-import {UpdateEmployeeDto} from './dto/update-employee.dto'
+import { CreateEmployeeDto } from './dto/create-employee.dto'
+import { UpdateEmployeeDto } from './dto/update-employee.dto'
+
 @Injectable()
 export class EmployeeService {
 
@@ -12,18 +13,12 @@ export class EmployeeService {
 
     async createEmployee(employee: CreateEmployeeDto){
 
-        const employeeFound = await this.employeeRepository.findOne({
-            where: {
-                employeename: employee.employeename
-            }
-        })
-
-        if (employeeFound){
-            return new HttpException('El empleado ya existe', HttpStatus.CONFLICT)
+        if ((employee.cargo == "Entrenador") || (employee.cargo == "Conserje")) {
+            const newEmployee = this.employeeRepository.create(employee) 
+            return this.employeeRepository.save(newEmployee)
         }
-
-        const newEmployee = this.employeeRepository.create(employee) 
-        return this.employeeRepository.save(newEmployee)
+        
+        return new HttpException('Solo hay 2 cargos, Conserje o Entrenador', HttpStatus.CONFLICT)
     }
 
     getEmployees(){
@@ -61,8 +56,12 @@ export class EmployeeService {
             return new HttpException('Empleado no encontrado', HttpStatus.NOT_FOUND)
         }
 
-        const updateEmployee = Object.assign(employeeFound, employee)
-        return this.employeeRepository.save(updateEmployee)
+        if ((employee.cargo == "Entrenador") || (employee.cargo == "Conserje")) {
+            const updateEmployee = Object.assign(employeeFound, employee)
+            return this.employeeRepository.save(updateEmployee)
+        }
+        
+        return new HttpException('Solo hay 2 cargos, Conserje o Entrenador', HttpStatus.CONFLICT)
 
     }
 }
